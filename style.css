@@ -53,3 +53,11 @@ h2 {
     font-size: 3rem;
     margin-bottom: 1rem;
 }
+
+article {
+    background-color: rgba(0, 0, 0, 0.5);
+    max-width: 800px;
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 8px;
+}
