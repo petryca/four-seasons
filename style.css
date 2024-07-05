@@ -1,57 +1,123 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 :root {
     font-size: 18px;
     font-family: Ubuntu, sans-serif;
+    color: #fff;
+    scroll-behavior: smooth;
 }
 
-header,
-section {
-    height: 100vh;
+/* apply below 600px screen */
+@media (max-width: 600px) {
+    :root {
+        font-size: 14px;
+    }
+}
+
+/* apply below 420px screen */
+@media (max-width: 420px) {
+    :root {
+        font-size: 12px;
+    }
 }
 
 header {
-    background-color: #333;
-    color: #fff;
+    background-color: #333333;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-#spring {
-    background-image: url('media/spring.jpg');
+#orbit {
+    border: 1px solid #555;
+    height: 300px;
+    width: 300px;
+    position: relative;
+    border-radius: 50%;
+    animation: orbiting 24s linear infinite;
 }
 
-#summer {
-    background-image: url('media/summer.jpg');
+#sun {
+    background-color: #ffcc00;
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    top: 120px;
+    left: 120px;
+    border-radius: 50%;
 }
 
-#autumn {
-    background-image: url('media/autumn.jpg');
+#earth {
+    background-color: #00BAFF;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    left: 16px;
+    top: 164px;
+    border-radius: 50%;
+    animation: orbiting 2s linear infinite;
 }
 
-#winter {
-    background-image: url('media/winter.jpg');
+#moon {
+    background-color: #999;
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    left: 8px;
+    top: -28px;
+    border-radius: 50%;
 }
 
-section {
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
+@keyframes orbiting {
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 h1 {
+    color: #999;
+    margin-top: 4rem;
     font-size: 2.8rem;
     text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-align: center;
     white-space: nowrap;
 }
 
-h2 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+section {
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#spring {
+    background-image: url(media/spring.jpg);
+}
+
+#summer {
+    background-image: url(media/summer.jpg);
+}
+
+#autumn {
+    background-image: url(media/autumn.jpg);
+}
+
+#winter {
+    background-image: url(media/winter.jpg);
 }
 
 article {
@@ -60,4 +126,53 @@ article {
     margin: 1rem;
     padding: 2rem;
     border-radius: 8px;
+    opacity: 0;
+    transform: translate(0, 100px);
+    transition: all 1s;
 }
+
+article.article.in-view {
+    opacity: 1;
+    transform: none;
+}
+
+h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    letter-spacing: -1px;
+}
+
+p {
+    line-height: 1.4;
+}
+
+footer {
+    padding: 4rem;
+    background-color: #111;
+}
+
+footer img {
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    transition: all 0.3s;
+}
+
+footer img:hover {
+    transform: scale(1.3);
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    list-style-type: none;
+}
+
+@media (max-width: 600px) {
+    footer ul {
+        flex-direction: column;
+    }
+}
+
